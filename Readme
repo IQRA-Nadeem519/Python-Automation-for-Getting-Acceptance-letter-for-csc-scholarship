@@ -1,0 +1,76 @@
+# Email Automation Script
+
+## Overview
+This Python script automates the process of sending emails with attachments to professors listed in a CSV file. The script reads professor details from the CSV, formats a personalized email, attaches a CV, and sends the email via SMTP.
+
+## Features
+- Reads recipient details (professor names, emails, research areas) from a CSV file.
+- Formats a personalized email message.
+- Attaches a CV (PDF format) to each email.
+- Sends emails through an SMTP server (Gmail).
+- Handles missing data and errors gracefully.
+
+## Prerequisites
+- Python 3.x
+- Required Python libraries:
+  ```sh
+  pip install pandas smtplib email
+  ```
+- A Gmail account with **less secure app access enabled** or an **app password** generated.
+- A properly formatted CSV file (`Dalian-University.csv`) with the following columns:
+  - `university`
+  - `field`
+  - `professor`
+  - `email`
+  - `research`
+
+## Installation & Usage
+1. Clone this repository or download the script.
+   ```sh
+   git clone https://github.com/yourusername/email-automation.git
+   cd email-automation
+   ```
+2. Ensure the CSV file is in the same directory as the script.
+3. Update `email_dats.py` with your email credentials:
+   ```python
+   Email = "your-email@gmail.com"
+   password = "your-email-password"
+   ```
+4. Run the script:
+   ```sh
+   python send_emails.py
+   ```
+
+## CSV File Structure
+Example CSV file format:
+```
+university,field,professor,email,research
+Dalian University,Mechanical Engineering,Dr. John Doe,johndoe@example.com,Renewable Energy
+```
+
+## Email Content
+Each email follows this template:
+```
+Dear Professor [Name],
+
+I hope this message finds you well. My name is Muneeb Ahmed, a final-year Mechanical Engineering student at Air University, Pakistan. I am applying for a Master’s degree through the CSC Scholarship and am very interested in your research.
+
+My final-year project, "Smart Helmet," focuses on enhancing safety and communication for workers in hazardous environments. I believe my background aligns well with your work, and I would be honored to contribute to your research.
+
+I have attached my CV for your review. Please let me know if you need any further information. I look forward to your response.
+
+Best regards,  
+Muneeb Ahmed
+```
+
+## Error Handling
+- If the CSV file is missing or improperly formatted, the script displays an error message and exits.
+- If any recipient's email or professor's name is missing, that entry is skipped.
+- If the SMTP connection fails, an error message is displayed.
+
+## License
+This project is licensed under the MIT License.
+
+## Author
+IQRA-Nadeem519
+
